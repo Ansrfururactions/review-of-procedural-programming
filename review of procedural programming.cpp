@@ -19,6 +19,7 @@ int main()
         return 0;
     }
 
+
     const int GradeAmt = 5;
     int grade= 0;
     int arr[GradeAmt];
