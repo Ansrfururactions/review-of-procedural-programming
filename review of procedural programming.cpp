@@ -33,37 +33,39 @@ int main()
         {
             return 0;
         }
-        
-        if (playerinputstandin == robochoice(generator))
+       
+        int robotchoice = robochoice(generator);
+
+        if (playerinputstandin == robotchoice)
         {
             cout << "its a draw!" << endl;
         }
-        else if (playerinputstandin == 1 && robochoice(generator) == 2)
+        else if (playerinputstandin == 1 && robotchoice == 2)
         {
             cout << "you lose! paper wraps rock.";
                 return 0;
         }
-        else if (playerinputstandin == 1 && robochoice(generator) == 3)
+        else if (playerinputstandin == 1 && robotchoice == 3)
         {
             cout << "you win! rock smashes scissors.";
                 return 0;
         }
-        else if (playerinputstandin == 2 && robochoice(generator) == 1)
+        else if (playerinputstandin == 2 && robotchoice == 1)
         {
             cout << "you win! paper wraps rock.";
                 return 0;
         }
-        else if (playerinputstandin == 2 && robochoice(generator) == 3)
+        else if (playerinputstandin == 2 && robotchoice == 3)
         {
             cout << "you lose! scissors cuts paper.";
                 return 0;
         }
-        else if (playerinputstandin == 3 && robochoice(generator) == 2)
+        else if (playerinputstandin == 3 && robotchoice == 2)
         {
             cout << "you win! scissors cuts paper.";
                 return 0;
         }
-        else if (playerinputstandin == 3 && robochoice(generator) == 1)
+        else if (playerinputstandin == 3 && robotchoice == 1)
         {
             cout << "you lose! rock smashes scissors.";
                 return 0;
