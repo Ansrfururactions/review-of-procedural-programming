@@ -34,6 +34,7 @@ int main()
     for (int r=0; r < namecounter; r++)
     {
         cout << names[r] << " ";
+        
         for (int c = 0; c < COLS; c++)
         {
             cout << grades[r][c] << " ";
