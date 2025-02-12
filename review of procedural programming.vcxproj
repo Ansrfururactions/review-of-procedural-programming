@@ -130,7 +130,10 @@
     <ClCompile Include="review of procedural programming.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\Downloads\StudentGrades.txt" />
+    <Text Include="..\..\..\Downloads\StudentGrades.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

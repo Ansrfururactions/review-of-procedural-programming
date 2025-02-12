@@ -6,53 +6,52 @@
 
 using namespace std; 
 
-const int namesAmt = 6;
-const int gradesAmt = 6;
+const int COLS = 5;
+const int ROWS = 15;
 
 const string Filename = "StudentGrades.txt";
-
-ifstream inputFile; 
-int getdata(istream &inputFile, string names[], int grades[][gradesAmt]);
+ 
+int getdata(istream &inFile, string names[], int grades[][COLS]);
 
 
 
 int main()
 {
-    string names[namesAmt];
-    int grades[namesAmt][gradesAmt];
+    string names[ROWS];
+    int grades[ROWS][COLS];
     int namecounter;
-    ifstream inputFile;
+    ifstream inFile;
 
-    inputFile.open(Filename);
-    if (!inputFile.fail())
+    inFile.open(Filename);
+    if (inFile.is_open())
     {
         cout << "could not open file, rerun the program and try again.";
-        return 0;
+        return (1);
     }
     
-    namecounter = getdata(inputFile, names, grades);
+    namecounter = getdata(inFile, names, grades);
 
     for (int r=0; r < namecounter; r++)
     {
         cout << names[r] << " ";
-        for (int c = 0; c < gradesAmt; c++)
+        for (int c = 0; c < COLS; c++)
         {
             cout << grades[r][c] << " ";
         }
         cout << endl;
     }
 }
-int getdata(istream& inputFile, string names[], int grades[][gradesAmt])
+int getdata(istream& inFile, string names[], int grades[][COLS])
 {
-    int record = 0;
-    while (inputFile >> names[record] && record <= namesAmt)
+    int records = 0;
+    while (inFile >> names[records] && records <= ROWS)
     {
-        for (int c = 0; c < gradesAmt; c++)
+        for (int c = 0; c < COLS; c++)
         {
-            inputFile >> grades[record][c];
+            inFile >> grades[records][c];
         }
-        record++;
+        records++;
     }
-    return record;
+    return records;
 }
 
