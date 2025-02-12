@@ -1,42 +1,58 @@
-// review of procedural programming.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
 
 #include <iostream>
 #include <string>
 #include <fstream>
+
 using namespace std; 
 
-int calculateaverage(int, int, int);
+const int namesAmt = 6;
+const int gradesAmt = 6;
+
+const string Filename = "StudentGrades.txt";
+
+ifstream inputFile; 
+int getdata(istream &inputFile, string names[], int grades[][gradesAmt]);
+
+
 
 int main()
 {
- 
+    string names[namesAmt];
+    int grades[namesAmt][gradesAmt];
+    int namecounter;
     ifstream inputFile;
-    inputFile.open("StudentGrades.txt");
-    if (inputFile.fail())
+
+    inputFile.open(Filename);
+    if (!inputFile.fail())
     {
         cout << "could not open file, rerun the program and try again.";
         return 0;
     }
-
-
-    const int GradeAmt = 5;
-    int grade= 0;
-    int arr[GradeAmt];
-    int currentgrades = 0;
     
-    void addElement(int arr[], int& currentgrades, int element, int GradeAmt);
-    {
-        while (currentgrades < GradeAmt)
-        {
-            arr[currentgrades++] = grade;
-        }
+    namecounter = getdata(inputFile, names, grades);
 
+    for (int r=0; r < namecounter; r++)
+    {
+        cout << names[r] << " ";
+        for (int c = 0; c < gradesAmt; c++)
+        {
+            cout << grades[r][c] << " ";
+        }
+        cout << endl;
     }
 }
-
-int calculateaverage(int scores, int combined, int average)
+int getdata(istream& inputFile, string names[], int grades[][gradesAmt])
 {
-
-    return average;
+    int record = 0;
+    while (inputFile >> names[record] && record <= namesAmt)
+    {
+        for (int c = 0; c < gradesAmt; c++)
+        {
+            inputFile >> grades[record][c];
+        }
+        record++;
+    }
+    return record;
 }
+
