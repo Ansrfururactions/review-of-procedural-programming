@@ -21,7 +21,7 @@ int main()
     string names[ROWS];
     int grades[ROWS][COLS];
     int namecounter;
-    int average[][COlS];
+    int average;
     ifstream inFile;
 
     inFile.open(Filename);
