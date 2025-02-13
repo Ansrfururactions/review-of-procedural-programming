@@ -12,6 +12,7 @@ const int ROWS = 15;
 const string Filename = "StudentGrades.txt";
  
 int getdata(istream &inFile, string names[], int grades[][COLS]);
+int getAverages(istream& inFile, int grades[][COLS]);
 
 
 
@@ -20,10 +21,11 @@ int main()
     string names[ROWS];
     int grades[ROWS][COLS];
     int namecounter;
+    int average[][COlS];
     ifstream inFile;
 
     inFile.open(Filename);
-    if (inFile.is_open())
+    if (!inFile.is_open())
     {
         cout << "could not open file, rerun the program and try again.";
         return (1);
@@ -41,7 +43,9 @@ int main()
         }
         cout << endl;
     }
+    average = getAverages( inFile, grades);
 }
+
 int getdata(istream& inFile, string names[], int grades[][COLS])
 {
     int records = 0;
@@ -54,5 +58,9 @@ int getdata(istream& inFile, string names[], int grades[][COLS])
         records++;
     }
     return records;
+}
+int getAverages(istream& inFile, int grades[][COLS])
+{
+    return 0;
 }
 
