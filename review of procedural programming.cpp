@@ -51,7 +51,7 @@ int main()
         cout << endl;
     }
 
-    average = getAverages(grades);
+   getAverages(grades, averageArray, namecounter);
 
     
 
