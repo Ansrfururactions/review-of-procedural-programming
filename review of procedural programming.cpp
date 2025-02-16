@@ -1,18 +1,23 @@
 
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <fstream>
 
 using namespace std; 
 
 const int COLS = 5;
-const int ROWS = 15;
+const int ROWS = 6;
+
+
+
 
 const string Filename = "StudentGrades.txt";
  
 int getdata(istream &inFile, string names[], int grades[][COLS]);
-int getAverages(istream& inFile, int grades[][COLS]);
+void getAverages(int grades[][COLS], double averageArray[],int namecounter);
+char getLettergrade(double average);
 
 
 
@@ -20,8 +25,10 @@ int main()
 {
     string names[ROWS];
     int grades[ROWS][COLS];
+    double averageArray[ROWS];
+    int averagecounter; 
     int namecounter;
-    int average;
+    double average=0;
     ifstream inFile;
 
     inFile.open(Filename);
@@ -43,7 +50,11 @@ int main()
         }
         cout << endl;
     }
-    average = getAverages( inFile, grades);
+
+    average = getAverages(grades);
+
+    
+
 }
 
 int getdata(istream& inFile, string names[], int grades[][COLS])
@@ -59,8 +70,21 @@ int getdata(istream& inFile, string names[], int grades[][COLS])
     }
     return records;
 }
-int getAverages(istream& inFile, int grades[][COLS])
+
+
+void getAverages(int grades[][COLS], double averageArray[], int namecounter)
 {
-    return 0;
+
+    for (int R=0; R < ROWS; ++R)
+    {
+        double sum = 0.0;
+        for (int C = 1; C < COLS; C++)
+        {
+            sum += grades[R][C];
+        }
+        double average = sum / COLS;
+        averageArray[R]= average;
+    } 
 }
 
+char getLettergrade(double average);
