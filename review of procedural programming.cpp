@@ -17,7 +17,7 @@ const string Filename = "StudentGrades.txt";
  
 int getdata(istream &inFile, string names[], int grades[][COLS]);
 void getAverages(int grades[][COLS], double averageArray[],int namecounter);
-char getLettergrade(double average);
+char getLettergrade(double average, char letterArray[ROWS]);
 
 
 
@@ -26,9 +26,9 @@ int main()
     string names[ROWS];
     int grades[ROWS][COLS];
     double averageArray[ROWS];
-    int averagecounter; 
+    char letterArray[ROWS];
     int namecounter;
-    double average=0;
+    double average = 0;
     ifstream inFile;
 
     inFile.open(Filename);
@@ -37,13 +37,13 @@ int main()
         cout << "could not open file, rerun the program and try again.";
         return (1);
     }
-    
+
     namecounter = getdata(inFile, names, grades);
 
-    for (int r=0; r < namecounter; r++)
+    for (int r = 0; r < namecounter; r++)
     {
         cout << names[r] << " ";
-        
+
         for (int c = 0; c < COLS; c++)
         {
             cout << grades[r][c] << " ";
@@ -51,10 +51,16 @@ int main()
         cout << endl;
     }
 
-   getAverages(grades, averageArray, namecounter);
+    getAverages(grades, averageArray, namecounter);
+    char getLettergrade(double average, char letterArray[ROWS]);
 
-    
-
+    for (int N = 0; N < namecounter; N++)
+    {
+        cout << names[N] << " ";
+        cout << letterArray[N] << " ";
+   
+        cout << endl;
+    }
 }
 
 int getdata(istream& inFile, string names[], int grades[][COLS])
@@ -87,4 +93,22 @@ void getAverages(int grades[][COLS], double averageArray[], int namecounter)
     } 
 }
 
-char getLettergrade(double average);
+char getLettergrade(double average, char letterArray[ROWS])
+{
+    int R = 0;
+    
+    for (R; R <= ROWS; ++R)
+    {
+        if (average >= 90)
+            letterArray[R] = 'A';
+        else if (average >= 80)
+            letterArray[R] = 'B';
+        else if (average >= 70)
+            letterArray[R] = 'C';
+        else if (average >= 60)
+            letterArray[R] = 'D';
+        else
+            letterArray[R] = 'F';
+    }
+        return letterArray[R];
+}
