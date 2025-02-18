@@ -17,7 +17,7 @@ const string Filename = "StudentGrades.txt";
  
 int getdata(istream &inFile, string names[], int grades[][COLS]);
 void getAverages(int grades[][COLS], double averageArray[],int namecounter);
-char getLettergrade(double average, char letterArray[ROWS]);
+void getLettergrade(double average, char letterArray[ROWS]);
 
 
 
@@ -52,7 +52,7 @@ int main()
     }
 
     getAverages(grades, averageArray, namecounter);
-    char getLettergrade(double average, char letterArray[ROWS]);
+    void getLettergrade(double average, char letterArray[ROWS]);
 
     for (int N = 0; N < namecounter; N++)
     {
@@ -93,7 +93,7 @@ void getAverages(int grades[][COLS], double averageArray[], int namecounter)
     } 
 }
 
-char getLettergrade(double average, char letterArray[ROWS])
+void getLettergrade(double average, char letterArray[ROWS])
 {
     int R = 0;
     
@@ -110,5 +110,4 @@ char getLettergrade(double average, char letterArray[ROWS])
         else
             letterArray[R] = 'F';
     }
-        return letterArray[R];
 }
