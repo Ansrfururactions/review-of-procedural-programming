@@ -40,16 +40,6 @@ int main()
 
     namecounter = getdata(inFile, names, grades);
 
-    for (int r = 0; r < namecounter; r++)
-    {
-        cout << names[r] << " ";
-
-        for (int c = 0; c < COLS; c++)
-        {
-            cout << grades[r][c] << " ";
-        }
-        cout << endl;
-    }
 
     getAverages(grades, averageArray, namecounter);
     void getLettergrade(double average, char letterArray[ROWS]);
