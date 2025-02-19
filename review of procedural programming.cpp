@@ -102,16 +102,13 @@ char getLettergrade(double average, double averageArray[], char letter, int RN)
     }
     return letter;
 }
-void printreport( string names[], double averageArray[], char letterArray[])
+void printreport(string names[], char letterArray[ROWS], double averageArray[ROWS])
 {
     int N = 0;
     int counter = 0;
   for (int N = 0; N < counter; ++N)
   {
-      cout << names[N] << " ";
-      cout << averageArray[N] << " ";
-      cout << letterArray[N] << " ";
-
+      cout << names[N] << " " << averageArray[N] << " " << letterArray[N] << " ";
       cout << endl;
   }
 }
