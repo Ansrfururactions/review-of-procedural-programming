@@ -16,7 +16,7 @@ const string Filename = "StudentGrades.txt";
 int getdata(istream &inFile, string names[], int grades[][COLS]);
 void getAverages(int grades[][COLS], double averageArray[],int namecounter);
 char getLettergrade(double average, double averageArray[], char letter, int RN);
-void printreport( string names[], char letterArray[ROWS], double averageArray[ROWS]);
+//void printreport( string names[], char letterArray[ROWS], double averageArray[ROWS]);
 
 
 
@@ -49,8 +49,12 @@ int main()
         letterArray[RN] = getLettergrade(average, averageArray, letter, RN);
         RN++;
     }
-    void printreport(string names[], char letterArray[ROWS], double averageArray[ROWS]);
-
+    //void printreport(string names[], char letterArray[ROWS], double averageArray[ROWS]);
+    for (int N = 0; N < namecounter; ++N)
+    {
+        cout << names[N] << " " << averageArray[N] << " " << letterArray[N] << " ";
+        cout << endl;
+    }
    
 }
 
@@ -102,13 +106,13 @@ char getLettergrade(double average, double averageArray[], char letter, int RN)
     }
     return letter;
 }
-void printreport(string names[], char letterArray[ROWS], double averageArray[ROWS])
-{
-    int N = 0;
-    int counter = 0;
-  for (int N = 0; N < counter; ++N)
-  {
-      cout << names[N] << " " << averageArray[N] << " " << letterArray[N] << " ";
-      cout << endl;
-  }
-}
+//void printreport(string names[], char letterArray[ROWS], double averageArray[ROWS])
+//{
+//    int N = 0;
+  //  int counter = 0;
+//  for (int N = 0; N < namecounter; ++N)
+//  {
+ //     cout << names[N] << " " << averageArray[N] << " " << letterArray[N] << " ";
+ //     cout << endl;
+//  }
+//}
