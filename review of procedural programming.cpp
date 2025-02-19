@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -18,7 +16,7 @@ const string Filename = "StudentGrades.txt";
 int getdata(istream &inFile, string names[], int grades[][COLS]);
 void getAverages(int grades[][COLS], double averageArray[],int namecounter);
 char getLettergrade(double average, double averageArray[], char letter, int RN);
-void printreport( string names[], char letterArray[], double averageArray[], int namecounter);
+void printreport( string names[], char letterArray[ROWS], double averageArray[ROWS]);
 
 
 
@@ -51,7 +49,8 @@ int main()
         letterArray[RN] = getLettergrade(average, averageArray, letter, RN);
         RN++;
     }
-    void printreport( string names[], char letterArray[], double averageArray[], int namecounter);
+    void printreport(string names[], char letterArray[ROWS], double averageArray[ROWS]);
+
    
 }
 
@@ -103,10 +102,11 @@ char getLettergrade(double average, double averageArray[], char letter, int RN)
     }
     return letter;
 }
-void printreport( string names[], double averageArray[], char letterArray[], int namecounter)
+void printreport( string names[], double averageArray[], char letterArray[])
 {
     int N = 0;
-  for (N; N < namecounter; ++N)
+    int counter = 0;
+  for (int N = 0; N < counter; ++N)
   {
       cout << names[N] << " ";
       cout << averageArray[N] << " ";
