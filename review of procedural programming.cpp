@@ -17,7 +17,8 @@ const string Filename = "StudentGrades.txt";
  
 int getdata(istream &inFile, string names[], int grades[][COLS]);
 void getAverages(int grades[][COLS], double averageArray[],int namecounter);
-void getLettergrade(double average, char letterArray[ROWS]);
+char getLettergrade(double average, double averageArray[], char letter, int RN);
+void printreport( string names[], char letterArray[], double averageArray[], int namecounter);
 
 
 
@@ -26,8 +27,9 @@ int main()
     string names[ROWS];
     int grades[ROWS][COLS];
     double averageArray[ROWS];
-    char letterArray[ROWS];
     int namecounter;
+    char letter = 'a';
+    char letterArray[ROWS];
     double average = 0;
     ifstream inFile;
 
@@ -35,22 +37,22 @@ int main()
     if (!inFile.is_open())
     {
         cout << "could not open file, rerun the program and try again.";
-        return (1);
+        return 0;
     }
 
     namecounter = getdata(inFile, names, grades);
 
 
     getAverages(grades, averageArray, namecounter);
-    void getLettergrade(double average, char letterArray[ROWS]);
-
-    for (int N = 0; N < namecounter; N++)
+    
+    int RN = 0;
+    while (RN < ROWS)
     {
-        cout << names[N] << " ";
-        cout << letterArray[N] << " ";
-   
-        cout << endl;
+        letterArray[RN] = getLettergrade(average, averageArray, letter, RN);
+        RN++;
     }
+    void printreport( string names[], char letterArray[], double averageArray[], int namecounter);
+   
 }
 
 int getdata(istream& inFile, string names[], int grades[][COLS])
@@ -83,21 +85,33 @@ void getAverages(int grades[][COLS], double averageArray[], int namecounter)
     } 
 }
 
-void getLettergrade(double average, char letterArray[ROWS])
+char getLettergrade(double average, double averageArray[], char letter, int RN)
 {
-    int R = 0;
-    
-    for (R; R <= ROWS; ++R)
+    average = averageArray[RN];
+    for (RN; RN <= ROWS;++RN)
     {
         if (average >= 90)
-            letterArray[R] = 'A';
+            letter = 'A';
         else if (average >= 80)
-            letterArray[R] = 'B';
+            letter = 'B';
         else if (average >= 70)
-            letterArray[R] = 'C';
+            letter = 'C';
         else if (average >= 60)
-            letterArray[R] = 'D';
+            letter = 'D';
         else
-            letterArray[R] = 'F';
+            letter= 'F';
     }
+    return letter;
+}
+void printreport( string names[], double averageArray[], char letterArray[], int namecounter)
+{
+    int N = 0;
+  for (N; N < namecounter; ++N)
+  {
+      cout << names[N] << " ";
+      cout << averageArray[N] << " ";
+      cout << letterArray[N] << " ";
+
+      cout << endl;
+  }
 }
