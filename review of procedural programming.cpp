@@ -125,7 +125,7 @@ void match(int playerinputstandin, int robotscore, int playerscore)
 
 void roundwinner(int playerscore, int robotscore)
 {
-    if (playerscore == robotscore)
+    if (playerscore = robotscore)
     {
         cout << "this match is a draw" << endl;
     }
@@ -142,7 +142,7 @@ void roundwinner(int playerscore, int robotscore)
 }
 void matchwinner(int playerwins, int robotwins)
 {
-    if (playerwins == robotwins)
+    if (playerwins = robotwins)
     {
         cout << "this tournament is a draw" << endl;
     }
