@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include <fstream>
 
@@ -16,19 +15,16 @@ const string Filename = "StudentGrades.txt";
 int getdata(istream &inFile, string names[], int grades[][COLS]);
 void getAverages(int grades[][COLS], double averageArray[],int namecounter);
 char getLettergrade(double average, double averageArray[], char letter, int RN);
-void printreport (string names[], char letterArray[], double averageArray[]);
+int printreport (string names[], char letterArray[], double averageArray[], int namecounter);
 
 
 
 int main()
 {
     string names[ROWS];
-    int grades[ROWS][COLS];
-    double averageArray[ROWS];
-    int namecounter;
-    char letter = 'a';
-    char letterArray[ROWS];
-    double average = 0;
+    int grades[ROWS][COLS], namecounter;
+    double averageArray[ROWS], average = 0;
+    char letter = 'a', letterArray[ROWS];
     ifstream inFile;
 
     inFile.open(Filename);
@@ -50,7 +46,7 @@ int main()
         RN++;
     }
    
-    printreport(names, letterArray, averageArray);
+    printreport(names, letterArray, averageArray, namecounter);
 }
 
 int getdata(istream& inFile, string names[], int grades[][COLS])
@@ -102,13 +98,16 @@ char getLettergrade(double average, double averageArray[], char letter, int RN)
     return letter;
 }
 
-void printreport(string names[], char letterArray[], double averageArray[])
+int printreport(string names[], char letterArray[], double averageArray[], int namecounter)
 {
-    int N = 0;
-    int counter = 0;
-    for (int N = 0; N < counter; ++N)
+    int egg = 0;
+    for (int egg = 0; egg < namecounter; egg++)
     {
-        cout << "report for" << names[N] << " " << averageArray[N] << " " << letterArray[N] << " ";
+        cout << "report for " << names[egg] << " " << endl;
+        cout << "overall average grade for " << names[egg] << ": " << averageArray[egg] << " ";
+         cout<< letterArray[egg] << " ";
+             
         cout << endl;
     }
+    return 0;
 }
