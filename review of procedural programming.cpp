@@ -4,8 +4,8 @@ using namespace std;
 
 int PlayerInput(string playerinput, int playerinputstandin);
 void match(int playerinputstandin, int robotscore, int playerscore);
-void roundwinner(int playerscore, int robotscore);
-void matchwinner(int playerwins, int robotwins);
+void matchwinner(int playerscore, int robotscore);
+void tournamentwinner(int playerwins, int robotwins);
 
 int main()
 {
@@ -36,10 +36,10 @@ int main()
             match(playerinputstandin, robotscore, playerscore);
             rounds++;
         }
-        roundwinner(playerscore, robotscore);
+        matchwinner(playerscore, robotscore);
         matches++;
     }
-    matchwinner(playerwins, robotwins);
+    tournamentwinner(playerwins, robotwins);
 
      
 }
@@ -123,7 +123,7 @@ void match(int playerinputstandin, int robotscore, int playerscore)
     }
 }
 
-void roundwinner(int playerscore, int robotscore)
+void matchwinner(int playerscore, int robotscore)
 {
     if (playerscore = robotscore)
     {
@@ -140,7 +140,7 @@ void roundwinner(int playerscore, int robotscore)
         robotscore++;
     }
 }
-void matchwinner(int playerwins, int robotwins)
+void tournamentwinner(int playerwins, int robotwins)
 {
     if (playerwins = robotwins)
     {
