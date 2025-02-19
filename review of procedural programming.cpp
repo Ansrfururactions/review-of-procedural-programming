@@ -5,6 +5,7 @@
 #include <random>
 using namespace std;
 
+int PlayerInput(string playerinput, int playerinputstandin = 0);
 
 int main()
 {
@@ -12,27 +13,12 @@ int main()
     uniform_int_distribution<int> robochoice(1, 3);
     string playerinput;
     int playerinputstandin = 0;
+    
+        
+        playerinputstandin =PlayerInput( playerinput, playerinputstandin);
 
-    cout << "rock, paper, or scissors? or quit?" << endl;
-        cin >> playerinput;
       
 
-        if (playerinput == "rock")
-        {
-            playerinputstandin = playerinputstandin+1;
-        }
-        else if (playerinput == "paper")
-        {
-            playerinputstandin = playerinputstandin+2;
-        }
-        else if (playerinput == "scissors")
-        {
-            playerinputstandin = playerinputstandin+3;
-        }
-        else if (playerinput == "quit")
-        {
-            return 0;
-        }
        
         int robotchoice = robochoice(generator);
 
@@ -74,3 +60,28 @@ int main()
      
 }
 
+int PlayerInput(string playerinput, int playerinputstandin)
+{
+    cout << "rock, paper, or scissors? or quit?" << endl;
+    cin >> playerinput;
+
+
+    if (playerinput == "rock")
+    {
+        playerinputstandin = playerinputstandin + 1;
+    }
+    else if (playerinput == "paper")
+    {
+        playerinputstandin = playerinputstandin + 2;
+    }
+    else if (playerinput == "scissors")
+    {
+        playerinputstandin = playerinputstandin + 3;
+    }
+    else if (playerinput == "quit")
+    {
+        return 0;
+    }
+    
+    return  playerinputstandin;
+}
