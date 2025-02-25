@@ -49,6 +49,7 @@ int main()
     printreport(names, letterArray, averageArray, namecounter);
 }
 
+
 int getdata(istream& inFile, string names[], int grades[][COLS])
 {
     int records = 0;
